@@ -17,7 +17,12 @@ import {
   incrementNotAnswered,
   addTime,
 } from "../features/stats/statsSlice"; // Import the actions
-import { togglePause, startQuiz, endQuiz } from "../features/timer/timerSlice";
+import {
+  pauseTimer,
+  resumeTimer,
+  startQuiz,
+  endQuiz,
+} from "../features/timer/timerSlice";
 
 const QuestionPage = () => {
   const dispatch = useDispatch();
@@ -69,9 +74,9 @@ const QuestionPage = () => {
 
   useEffect(() => {
     if (isLoading) {
-      dispatch(togglePause());
+      dispatch(pauseTimer());
     } else {
-      dispatch(togglePause());
+      dispatch(resumeTimer());
     }
   }, [isLoading, dispatch]);
 

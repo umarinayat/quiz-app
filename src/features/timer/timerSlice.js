@@ -35,6 +35,12 @@ export const timerSlice = createSlice({
     resetTimer: (state) => {
       state.timeRemaining = state.totalTime;
     },
+    pauseTimer: (state) => {
+      state.isPaused = true;
+    },
+    resumeTimer: (state) => {
+      state.isPaused = false;
+    },
     togglePause: (state) => {
       state.isPaused = !state.isPaused;
       console.log("Toggling pause:", state.isPaused); // Log pause state
@@ -57,6 +63,8 @@ export const {
   togglePause,
   startQuiz,
   endQuiz,
+  pauseTimer,
+  resumeTimer,
 } = timerSlice.actions;
 
 export default timerSlice.reducer;
