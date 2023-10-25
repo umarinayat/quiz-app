@@ -24,6 +24,7 @@ export const timerSlice = createSlice({
       state.timeRemaining = action.payload;
     },
     decrementTime: (state) => {
+      console.log("Decrementing time:", state.isPaused);
       if (!state.isPaused) {
         state.timeRemaining = Math.max(state.timeRemaining - 1, 0);
       }
@@ -36,6 +37,7 @@ export const timerSlice = createSlice({
     },
     togglePause: (state) => {
       state.isPaused = !state.isPaused;
+      console.log("Toggling pause:", state.isPaused); // Log pause state
     },
     startQuiz: (state) => {
       state.startTime = new Date().getTime();
