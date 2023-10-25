@@ -40,12 +40,14 @@ const QuestionPage = () => {
   const handleAnswerSelect = (event) => {
     setShowAnswer(true);
     setSelectedAnswer(event.target.value);
-    if (
-      event.target.value === questions[currentQuestionIndex]?.correct_answer
-    ) {
-      dispatch(incrementCorrect());
-    } else {
-      dispatch(incrementWrong());
+    if (event.target.value) {
+      if (
+        event.target.value === questions[currentQuestionIndex]?.correct_answer
+      ) {
+        dispatch(incrementCorrect());
+      } else {
+        dispatch(incrementWrong());
+      }
     }
   };
 
